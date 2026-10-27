@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Muhammad Danish bin Mohd Azman — Software Engineering Student</title>
+<meta name="description" content="Software Engineering (Hons) student at Universiti Sains Malaysia. Seeking a 24-week internship, March to August 2026." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="styles.css" />
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.175.0/build/three.module.js" } }
+</script>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="nav">
+  <a href="#overview" class="nav-logo">Danish Azman<span>.</span></a>
+  <nav class="nav-links">
+    <ul>
+      <li><a href="#overview" class="active">Overview</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#journey">Journey</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Contact <span class="arr">&#8599;</span></a>
+  </nav>
+  <button class="nav-burger" aria-label="Menu"><span></span><span></span></button>
+</header>
+
+<!-- ===== 00 INTRODUCTION ===== -->
+<section class="hero" id="overview" data-section="00" data-label="Introduction">
+  <div class="section-meta">
+    <span class="meta-left">Introduction / 00</span>
+    <span class="meta-right">Scroll to explore &#8595;</span>
+  </div>
+
+  <canvas id="lanyard" aria-hidden="true"></canvas>
+
+  <div class="hero-grid">
+    <div class="hero-name">
+      <p class="eyebrow">Software Engineering Student</p>
+      <h1>Muhammad Danish<br />Bin Mohd<br />Azman</h1>
+      <div class="hero-age">
+        <span class="k">Age</span>
+        <span class="v">22</span>
+      </div>
+    </div>
+
+    <div class="hero-facts">
+      <div class="fact">
+        <span class="k">University</span>
+        <span class="v">Universiti Sains Malaysia</span>
+      </div>
+      <div class="fact">
+        <span class="k">Programme</span>
+        <span class="v">Bachelor of Software Engineering (Hons)</span>
+      </div>
+      <div class="fact">
+        <span class="k">Status</span>
+        <span class="v">Final year &#183; graduating 2027</span>
+      </div>
+    </div>
+  </div>
+
+  <p class="hero-hint">Drag the card</p>
+</section>
+
+<!-- ===== 01 ABOUT ===== -->
+<section class="sec about" id="about" data-section="01" data-label="About">
+  <div class="section-meta">
+    <span class="meta-left">About / 01</span>
+    <span class="meta-right">Who I am</span>
+  </div>
+
+  <div class="about-grid">
+    <h2 class="lede reveal">
+      I build for the web &#8212; and the GPU systems that serve the models behind it.
+    </h2>
+    <div class="about-body">
+      <p class="reveal">A final-year Software Engineering (Hons) student at Universiti Sains Malaysia with a foundation in programming, web development and database systems, built through coursework and project work.</p>
+      <p class="reveal">I spent 2026 as an AI Engineer Intern at Scicom AI Enterprise, working across the GPU inference and model-training stack &#8212; benchmarking production LLM deployments, building distributed training pipelines, and researching End-of-Turn detection for Malaysian speech.</p>
+      <div class="about-stats reveal">
+        <div class="stat"><span class="n">3.23</span><span class="l">CGPA &#8212; USM</span></div>
+        <div class="stat"><span class="n">3.92</span><span class="l">CGPA &#8212; Foundation</span></div>
+        <div class="stat"><span class="n">24</span><span class="l">Weeks at Scicom</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 02 EXPERIENCE ===== -->
+<section class="sec experience" id="experience" data-section="02" data-label="Experience">
+  <div class="section-meta">
+    <span class="meta-left">Experience / 02</span>
+    <span class="meta-right">Where I've worked</span>
+  </div>
+
+  <div class="exp-head">
+    <h2 class="sec-title reveal">AI Engineer<br />Intern</h2>
+    <div class="exp-org reveal">
+      <div class="fact">
+        <span class="k">Company</span>
+        <span class="v">Scicom AI Enterprise<br />(Scicom MSC Berhad)</span>
+      </div>
+      <div class="fact">
+        <span class="k">Department</span>
+        <span class="v">AI Solutions</span>
+      </div>
+      <div class="fact">
+        <span class="k">Period</span>
+        <span class="v">9 March &#8212; 23 August 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <p class="exp-lede reveal">Worked across the GPU inference and model-training stack, from benchmarking production LLM deployments to building distributed training pipelines and a featured speech research project.</p>
+
+  <ol class="exp-list">
+    <li class="project exp reveal">
+      <span class="p-num">01</span>
+      <div class="p-main">
+        <h3>GPU Platform Benchmarking</h3>
+        <ul class="exp-points">
+          <li>Ran performance sweeps for large language and embedding models &#8212; Qwen3-Embedding-8B and Gemma FP8 &#8212; on H20 GPU nodes across context lengths and concurrency levels using vLLM.</li>
+          <li>Benchmarked NVIDIA Dynamo in a disaggregated serving setup of 4 prefill and 4 decode workers with tensor parallelism, feeding the results into the team's SLO calculator.</li>
+          <li>Built Grafana dashboard panels to monitor vLLM throughput and latency in real time.</li>
+        </ul>
+      </div>
+      <ul class="p-stack"><li>vLLM</li><li>NVIDIA Dynamo</li><li>Grafana</li></ul>
+    </li>
+
+    <li class="project exp reveal">
+      <span class="p-num">02</span>
+      <div class="p-main">
+        <h3>Distributed Training</h3>
+        <ul class="exp-points">
+          <li>Built an FSDP multi-GPU training pipeline with MLflow experiment tracking on RunPod.</li>
+          <li>Added tensor parallelism support to ecahLang, Scicom's custom inference server.</li>
+        </ul>
+      </div>
+      <ul class="p-stack"><li>PyTorch FSDP</li><li>MLflow</li><li>RunPod</li></ul>
+    </li>
+
+    <li class="project exp reveal">
+      <span class="p-num">03</span>
+      <div class="p-main">
+        <h3>API Proxy &amp; Inference</h3>
+        <ul class="exp-points">
+          <li>Integrated LiveKit's turn detector into the GPU Platform API proxy, so voice agents could route turn-detection requests through a single endpoint.</li>
+        </ul>
+      </div>
+      <ul class="p-stack"><li>LiveKit</li><li>API proxy</li></ul>
+    </li>
+
+    <li class="project exp reveal">
+      <span class="p-num">04</span>
+      <div class="p-main">
+        <h3>Data &amp; MLOps Pipelines</h3>
+        <ul class="exp-points">
+          <li>Set up HuggingFace Datasets tracking with MLflow, logging runs to the team's shared MLflow server.</li>
+        </ul>
+      </div>
+      <ul class="p-stack"><li>HuggingFace</li><li>MLflow</li></ul>
+    </li>
+
+    <li class="project exp exp-featured reveal">
+      <span class="p-num">05</span>
+      <div class="p-main">
+        <h3>Speech Research <span class="exp-tag">Featured</span></h3>
+        <ul class="exp-points">
+          <li>Researched End-of-Turn detection for Malaysian speech, using LoRA fine-tuning on Qwen2.5-Omni.</li>
+        </ul>
+      </div>
+      <ul class="p-stack"><li>Qwen2.5-Omni</li><li>LoRA</li></ul>
+    </li>
+  </ol>
+</section>
+
+<!-- ===== 03 PROJECTS ===== -->
+<section class="sec projects" id="projects" data-section="03" data-label="Projects">
+  <div class="section-meta">
+    <span class="meta-left">Projects / 03</span>
+    <span class="meta-right">Selected work</span>
+  </div>
+
+  <h2 class="sec-title reveal">Selected<br />Work</h2>
+
+  <ol class="project-list">
+    <li class="project reveal">
+      <span class="p-num">001</span>
+      <div class="p-main">
+        <h3>Tourism Penang</h3>
+        <p>An interactive tourism website presenting Penang's attractions, built with a modular, component-based architecture and a mobile-first responsive layout. Frontend assets, UI interactions and navigation flows were optimised to improve perceived loading performance.</p>
+      </div>
+      <ul class="p-stack">
+        <li>ReactJS</li><li>Vite</li><li>Tailwind CSS</li>
+      </ul>
+    </li>
+
+    <li class="project reveal">
+      <span class="p-num">002</span>
+      <div class="p-main">
+        <h3>Readify</h3>
+        <p>A full-stack book e-commerce and inventory system where users browse, search and purchase books. Built on a relational schema managing inventory records, user profiles and transaction histories, with CRUD admin dashboards for stock management and order processing.</p>
+      </div>
+      <ul class="p-stack">
+        <li>Node.js</li><li>REST APIs</li><li>MySQL</li>
+      </ul>
+    </li>
+  </ol>
+</section>
+
+<!-- ===== 04 SKILLS ===== -->
+<section class="sec skills" id="skills" data-section="04" data-label="Skills">
+  <div class="section-meta">
+    <span class="meta-left">Skills / 04</span>
+    <span class="meta-right">What I work with</span>
+  </div>
+
+  <h2 class="sec-title reveal">Toolkit</h2>
+
+  <div class="skill-grid">
+    <div class="skill-col reveal">
+      <h4>Languages</h4>
+      <ul><li>C++</li><li>C</li><li>Java</li><li>Python</li><li>JavaScript</li><li>SQL</li><li>HTML / CSS</li></ul>
+    </div>
+    <div class="skill-col reveal">
+      <h4>AI / ML</h4>
+      <ul><li>PyTorch FSDP</li><li>vLLM</li><li>LoRA fine-tuning</li><li>HuggingFace</li><li>MLflow</li><li>NVIDIA Dynamo</li></ul>
+    </div>
+    <div class="skill-col reveal">
+      <h4>Frontend</h4>
+      <ul><li>ReactJS</li><li>Tailwind CSS</li><li>Vite</li></ul>
+    </div>
+    <div class="skill-col reveal">
+      <h4>Backend</h4>
+      <ul><li>Node.js</li><li>REST APIs</li></ul>
+    </div>
+    <div class="skill-col reveal">
+      <h4>Database</h4>
+      <ul><li>MySQL</li><li>PostgreSQL</li><li>Oracle</li></ul>
+    </div>
+    <div class="skill-col reveal">
+      <h4>Tools</h4>
+      <ul><li>Git / GitHub</li><li>Grafana</li><li>RunPod</li><li>VS Code</li><li>Canva</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 05 JOURNEY ===== -->
+<section class="sec journey" id="journey" data-section="05" data-label="Journey">
+  <div class="section-meta">
+    <span class="meta-left">Journey / 05</span>
+    <span class="meta-right">So far</span>
+  </div>
+
+  <h2 class="sec-title reveal">Journey</h2>
+
+  <ol class="timeline">
+    <li class="tl reveal">
+      <span class="tl-year">2022 &#8212; 2023</span>
+      <div class="tl-body">
+        <h3>UiTM Dengkil</h3>
+        <p>Foundation in Engineering &#183; CGPA 3.92</p>
+      </div>
+    </li>
+    <li class="tl reveal">
+      <span class="tl-year">2023 &#8212; Present</span>
+      <div class="tl-body">
+        <h3>Universiti Sains Malaysia</h3>
+        <p>Bachelor of Software Engineering with Honours &#183; CGPA 3.23</p>
+        <p class="tl-sub">Foundation of Software Engineering &#183; Software Architecture and Design &#183; Integrated Software Development</p>
+      </div>
+    </li>
+    <li class="tl reveal">
+      <span class="tl-year">Mar &#8212; Aug 2026</span>
+      <div class="tl-body">
+        <h3>Scicom AI Enterprise</h3>
+        <p>AI Engineer Intern, AI Solutions &#183; 24 weeks</p>
+        <p class="tl-sub">GPU platform benchmarking &#183; distributed training &#183; speech research</p>
+      </div>
+    </li>
+    <li class="tl reveal">
+      <span class="tl-year">Leadership</span>
+      <div class="tl-body">
+        <h3>SUKAD Programme</h3>
+        <p>Deputy Director</p>
+      </div>
+    </li>
+    <li class="tl reveal tl-next">
+      <span class="tl-year">2027</span>
+      <div class="tl-body">
+        <h3>Open to graduate roles</h3>
+        <p>Final year at USM &#183; available on graduation</p>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<!-- ===== 06 GALLERY ===== -->
+<section class="sec gallery" id="gallery" data-section="06" data-label="Gallery">
+  <div class="section-meta">
+    <span class="meta-left">Gallery / 06</span>
+    <span class="meta-right">Off the clock</span>
+  </div>
+
+  <h2 class="sec-title reveal">Gallery</h2>
+
+  <div class="gal-grid">
+    <figure class="gal reveal"><img src="images/gallery/1.jpg" alt="" loading="lazy" /></figure>
+    <figure class="gal reveal"><img src="images/gallery/2.jpg" alt="" loading="lazy" /></figure>
+    <figure class="gal reveal"><img src="images/gallery/3.jpg" alt="" loading="lazy" /></figure>
+    <figure class="gal reveal"><img src="images/gallery/4.jpg" alt="" loading="lazy" /></figure>
+    <figure class="gal reveal"><img src="images/gallery/5.jpg" alt="" loading="lazy" /></figure>
+    <figure class="gal reveal"><img src="images/gallery/6.jpg" alt="" loading="lazy" /></figure>
+    <figure class="gal reveal"><img src="images/gallery/7.jpg" alt="" loading="lazy" /></figure>
+    <figure class="gal reveal"><img src="images/gallery/8.jpg" alt="" loading="lazy" /></figure>
+    <figure class="gal reveal"><img src="images/gallery/9.jpg" alt="" loading="lazy" /></figure>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<footer class="sec contact" id="contact" data-section="07" data-label="Contact">
+  <div class="section-meta">
+    <span class="meta-left">Contact / 07</span>
+    <span class="meta-right">Let's talk</span>
+  </div>
+
+  <h2 class="contact-head reveal">Looking for a graduate<br />engineer?</h2>
+
+  <a class="contact-mail reveal" href="mailto:nishhhh20@gmail.com">nishhhh20@gmail.com</a>
+
+  <div class="contact-grid">
+    <div class="c-col reveal">
+      <span class="k">Phone</span>
+      <a href="tel:+60123865305">+60 12-386 5305</a>
+    </div>
+    <div class="c-col reveal">
+      <span class="k">LinkedIn</span>
+      <a href="https://www.linkedin.com/in/danishazman20/" target="_blank" rel="noopener">danishazman20</a>
+    </div>
+    <div class="c-col reveal">
+      <span class="k">GitHub</span>
+      <a href="https://github.com/nieshies" target="_blank" rel="noopener">nieshies</a>
+    </div>
+    <div class="c-col reveal">
+      <span class="k">Instagram</span>
+      <a href="https://www.instagram.com/dnssssh/" target="_blank" rel="noopener">@dnssssh</a>
+    </div>
+    <div class="c-col reveal">
+      <span class="k">Résumé</span>
+      <a href="resume.pdf" target="_blank" rel="noopener">Download PDF</a>
+    </div>
+  </div>
+
+  <div class="foot-rule"></div>
+  <div class="foot-bottom">
+    <span>&#169; <span id="year">2026</span> Muhammad Danish bin Mohd Azman</span>
+    <span>Penang, Malaysia</span>
+  </div>
+</footer>
+
+<script type="module" src="lanyard.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
