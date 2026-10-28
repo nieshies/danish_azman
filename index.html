@@ -4,7 +4,18 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Muhammad Danish bin Mohd Azman — Software Engineering Student</title>
-<meta name="description" content="Software Engineering (Hons) student at Universiti Sains Malaysia. Seeking a 24-week internship, March to August 2026." />
+<meta name="description" content="Final-year Software Engineering (Hons) student at Universiti Sains Malaysia and AI Engineer Intern at Scicom, working across GPU inference and model training." />
+
+<!-- share card -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Muhammad Danish bin Mohd Azman — Software Engineering" />
+<meta property="og:description" content="Final-year Software Engineering (Hons) student at USM and AI Engineer Intern at Scicom, working across GPU inference and model training." />
+<meta property="og:url" content="https://nieshies.github.io/danish_azman/" />
+<meta property="og:image" content="https://nieshies.github.io/danish_azman/images/og.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="theme-color" content="#f2f2f0" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -192,29 +203,77 @@
 
   <h2 class="sec-title reveal">Selected<br />Work</h2>
 
-  <ol class="project-list">
-    <li class="project reveal">
-      <span class="p-num">001</span>
-      <div class="p-main">
-        <h3>Tourism Penang</h3>
-        <p>An interactive tourism website presenting Penang's attractions, built with a modular, component-based architecture and a mobile-first responsive layout. Frontend assets, UI interactions and navigation flows were optimised to improve perceived loading performance.</p>
-      </div>
-      <ul class="p-stack">
-        <li>ReactJS</li><li>Vite</li><li>Tailwind CSS</li>
-      </ul>
-    </li>
+  <div class="pc reveal" data-carousel tabindex="0" role="group"
+       aria-label="Selected projects. Use the left and right arrow keys to browse.">
+    <div class="pc-stage" data-stage>
 
-    <li class="project reveal">
-      <span class="p-num">002</span>
-      <div class="p-main">
-        <h3>Readify</h3>
-        <p>A full-stack book e-commerce and inventory system where users browse, search and purchase books. Built on a relational schema managing inventory records, user profiles and transaction histories, with CRUD admin dashboards for stock management and order processing.</p>
-      </div>
-      <ul class="p-stack">
-        <li>Node.js</li><li>REST APIs</li><li>MySQL</li>
-      </ul>
-    </li>
-  </ol>
+      <article class="pc-slide" data-slide
+        data-category="Computer vision"
+        data-title="ArcherVision"
+        data-status="In development"
+        data-desc="Archery form analysis from ordinary cameras. Two phones record a shot from different angles; the system reads shoulder, elbow and trunk angles at each of the eight shooting phases, scores how repeatable the form is across a session, and turns that into plain-language coaching feedback."
+        data-tags="TypeScript, Pose estimation, Docker">
+        <div class="pc-frame">
+          <img src="images/projects/archervision.jpg" alt="ArcherVision landing page" loading="lazy" />
+          <span class="pc-num">01</span>
+        </div>
+      </article>
+
+      <article class="pc-slide" data-slide
+        data-category="GPU infrastructure"
+        data-title="Qwen3-Embedding-8B benchmark"
+        data-status="Published"
+        data-desc="A reproducible benchmark harness for an 8B embedding model served with vLLM: provision a GPU pod, sweep concurrency against three input lengths, pull the results back, tear the pod down. Throughput and p99 latency for every run are committed to the repo."
+        data-tags="vLLM, Python, RunPod"
+        data-repo="https://github.com/nieshies/qwen3-embedding-benchmark">
+        <div class="pc-frame">
+          <img src="images/projects/qwen-benchmark.jpg" alt="Benchmark results: throughput against concurrency at three input lengths" loading="lazy" />
+          <span class="pc-num">02</span>
+        </div>
+      </article>
+
+      <article class="pc-slide" data-slide
+        data-category="Web platform &#183; team project"
+        data-title="P-LRT Hub"
+        data-status="Live"
+        data-desc="A community information hub for residents living alongside the Penang LRT Mutiara Line construction: a live map of closures and work zones, notices, a channel for reporting concerns, and a directory supporting neighbourhood shops. Bilingual throughout."
+        data-tags="React, Supabase, Leaflet, i18next"
+        data-live="https://wanadamm.github.io/P-LRT-Hub/">
+        <div class="pc-frame">
+          <img src="images/projects/p-lrt-hub.jpg" alt="P-LRT Hub home page" loading="lazy" />
+          <span class="pc-num">03</span>
+        </div>
+      </article>
+
+      <article class="pc-slide" data-slide
+        data-category="Front end"
+        data-title="Tourism Penang"
+        data-status="Complete"
+        data-desc="An interactive guide to Penang&#8217;s attractions, food and events, built on a modular component architecture with a mobile-first layout. Assets, UI interactions and navigation flows were tuned to improve perceived loading speed."
+        data-tags="React, Vite, Tailwind CSS">
+        <div class="pc-frame">
+          <img src="images/projects/tourism-penang.jpg" alt="Tourism Penang home page" loading="lazy" />
+          <span class="pc-num">04</span>
+        </div>
+      </article>
+
+      <article class="pc-slide" data-slide
+        data-category="Front end"
+        data-title="Amrul &amp; Aqilah"
+        data-status="Complete"
+        data-desc="A wedding invitation site &#8212; editorial ivory palette, Cormorant Garamond against a script display face, and scroll-reveal motion carried through every section. Frontend only, built to be read on a phone."
+        data-tags="Next.js, Motion">
+        <div class="pc-frame">
+          <img src="images/projects/weddingweb.jpg" alt="Wedding invitation site" loading="lazy" />
+          <span class="pc-num">05</span>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="pc-dots" data-dots></div>
+    <div class="pc-detail" data-detail aria-live="polite"></div>
+  </div>
 </section>
 
 <!-- ===== 04 SKILLS ===== -->
@@ -224,7 +283,16 @@
     <span class="meta-right">What I work with</span>
   </div>
 
-  <h2 class="sec-title reveal">Toolkit</h2>
+  <div class="skills-head">
+    <h2 class="sec-title reveal">Toolkit</h2>
+    <div class="blob-art reveal">
+      <div class="blob-wrap" data-blob tabindex="0" role="group"
+           aria-label="An interactive 3D sculpture. Move your pointer to guide it, drag to spin it, or use the arrow keys when focused.">
+        <canvas aria-hidden="true"></canvas>
+      </div>
+      <p class="blob-cap">Move pointer or drag to explore</p>
+    </div>
+  </div>
 
   <div class="skill-grid">
     <div class="skill-col reveal">
@@ -368,6 +436,7 @@
 </footer>
 
 <script type="module" src="lanyard.js"></script>
+<script type="module" src="blob.js"></script>
 <script src="main.js"></script>
 </body>
 </html>

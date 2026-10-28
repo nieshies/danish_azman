@@ -362,6 +362,182 @@ ul, ol { list-style: none; }
 .exp-featured .exp-tag { border-color: var(--ink); color: var(--ink); }
 
 /* ============================================================
+   03 — PROJECTS (3D carousel)
+   ============================================================ */
+.pc { padding: 0 var(--pad); outline: none; }
+.pc:focus-visible { outline: 2px solid var(--ink); outline-offset: 10px; }
+
+.pc-stage {
+  position: relative;
+  height: clamp(320px, 36vw, 470px);
+  perspective: 1400px;
+  isolation: isolate;
+  touch-action: pan-y;
+}
+/* blurred ground shadow — this is what sells the 3D */
+.pc-stage::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 26%; right: 26%;
+  bottom: 6px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(17, 17, 17, 0.26);
+  filter: blur(13px);
+  transform: scaleX(1.35);
+}
+
+.pc-slide {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 64%;
+  height: 100%;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  transition: transform 0.65s cubic-bezier(0.2, 0.75, 0.2, 1),
+              opacity 0.5s ease, filter 0.5s ease;
+}
+.pc-slide[data-state="active"] {
+  z-index: 3; opacity: 1; filter: none;
+  transform: translateX(-50%) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+}
+.pc-slide[data-state="next"] {
+  z-index: 2; opacity: 0.72; filter: saturate(0.75);
+  transform: translateX(0) translateY(26px) rotateY(-20deg) scale(0.76)
+             rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+}
+.pc-slide[data-state="previous"] {
+  z-index: 2; opacity: 0.72; filter: saturate(0.75);
+  transform: translateX(-100%) translateY(26px) rotateY(20deg) scale(0.76)
+             rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+}
+.pc-slide[data-state="hidden"] {
+  z-index: 0; opacity: 0; pointer-events: none;
+  transform: translateX(-50%) scale(0.65);
+}
+
+.pc-frame {
+  position: relative;
+  width: 100%; height: 100%;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #e5e5e1;
+  box-shadow: 0 26px 50px -30px rgba(17, 17, 17, 0.6),
+              0 12px 24px -20px rgba(0, 0, 0, 0.5);
+  transition: box-shadow 0.4s ease;
+}
+.pc-slide[data-state="active"] .pc-frame {
+  box-shadow: 0 30px 55px -25px rgba(17, 17, 17, 0.55),
+              0 16px 30px -20px rgba(0, 0, 0, 0.55);
+}
+.pc-frame img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: top center;
+  display: block;
+  transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.pc-slide[data-state="active"]:hover .pc-frame img { transform: scale(1.035); }
+
+.pc-num {
+  position: absolute;
+  top: 16px; left: 16px;
+  padding: 8px 11px;
+  background: var(--paper);
+  font-family: var(--body);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: var(--mute);
+}
+
+/* dots */
+.pc-dots { display: flex; justify-content: center; gap: 3px; margin-top: 22px; }
+.pc-dot {
+  width: 30px; height: 30px;
+  background: none; border: 0; padding: 0;
+  display: grid; place-items: center;
+  cursor: pointer;
+}
+.pc-dot::before {
+  content: "";
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #a9a9a3;
+  transition: width 0.25s ease, height 0.25s ease, background 0.25s ease, transform 0.25s ease;
+}
+.pc-dot:hover::before { background: #55554f; transform: scale(1.2); }
+.pc-dot.is-active::before { width: 9px; height: 9px; background: var(--ink); }
+
+/* shared metadata panel */
+.pc-detail {
+  width: min(100%, 860px);
+  margin: 34px auto 0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 6px 24px;
+  align-items: start;
+}
+.pc-cat {
+  grid-column: 1 / -1;
+  font-size: 10.5px; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--mute);
+}
+.pc-title {
+  font-family: var(--display);
+  font-size: clamp(1.45rem, 2.6vw, 2.1rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  animation: pcIn 0.34s cubic-bezier(0.2, 0.75, 0.2, 1);
+}
+@keyframes pcIn { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: none; } }
+.pc-status {
+  justify-self: end;
+  align-self: center;
+  padding: 5px 12px 6px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--mute);
+  white-space: nowrap;
+}
+.pc-desc {
+  grid-column: 1 / -1;
+  margin-top: 8px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #3a3a36;
+  max-width: 66ch;
+}
+.pc-tags { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 7px; margin-top: 18px; }
+.pc-tags span {
+  padding: 6px 11px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: #55554f;
+}
+.pc-links { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 22px; margin-top: 20px; }
+.pc-links:empty { display: none; }
+.pc-links a {
+  font-family: var(--display);
+  font-size: 15px; font-weight: 500;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 3px;
+  transition: border-color 0.25s ease;
+}
+.pc-links a:hover { border-color: var(--ink); }
+
+@media (prefers-reduced-motion: reduce) {
+  .pc-slide { transition: none; }
+  .pc-title { animation: none; }
+}
+
+/* ============================================================
    04 — SKILLS
    ============================================================ */
 .skill-grid {
@@ -373,6 +549,53 @@ ul, ol { list-style: none; }
 .skill-col h4 { margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
 .skill-col ul { display: flex; flex-direction: column; gap: 11px; }
 .skill-col li { font-family: var(--display); font-size: 16px; font-weight: 500; letter-spacing: -0.012em; }
+
+/* the sculpture beside the Toolkit heading */
+.skills-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+  padding: 0 var(--pad);
+  margin-bottom: clamp(96px, 15vh, 180px);
+}
+.skills-head .sec-title { padding: 0; margin-bottom: 0; }
+
+.blob-art {
+  position: relative;
+  height: 400px;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+}
+.blob-wrap {
+  position: relative;
+  width: min(100%, 470px);
+  height: 100%;
+  cursor: grab;
+  touch-action: none;
+  outline: none;
+}
+.blob-wrap.is-dragging { cursor: grabbing; }
+.blob-wrap:focus-visible { outline: 2px solid var(--ink); outline-offset: 6px; }
+/* overscan: the rings need more room than the layout box gives them */
+.blob-wrap canvas {
+  position: absolute;
+  inset: -30%;
+  width: 160%;
+  height: 160%;
+  display: block;
+}
+.blob-cap {
+  position: absolute;
+  bottom: -34px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mute);
+  pointer-events: none;
+}
 
 /* ============================================================
    05 — JOURNEY
@@ -485,6 +708,9 @@ ul, ol { list-style: none; }
   :root { --pad: 32px; }
   .skill-grid { grid-template-columns: repeat(3, 1fr); gap: 30px 24px; }
   .exp-head { grid-template-columns: 1fr; gap: 34px; }
+  .pc-slide { width: 74%; }
+  .skills-head { grid-template-columns: 1fr; gap: 24px; margin-bottom: clamp(52px, 8vh, 90px); }
+  .blob-art { height: 340px; order: 2; }
   .exp-org { margin-left: 0; max-width: none; }
   .contact-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; }
   .project { grid-template-columns: 64px 1fr; }
@@ -526,6 +752,13 @@ ul, ol { list-style: none; }
 
   .project { grid-template-columns: 1fr; gap: 14px; padding: 32px var(--pad); }
   .exp-points li { font-size: 14.5px; }
+  .pc-slide { width: 80%; }
+  .pc-slide[data-state="next"] { transform: translateX(34%) translateY(18px) rotateY(-13deg) scale(0.78); }
+  .pc-slide[data-state="previous"] { transform: translateX(-134%) translateY(18px) rotateY(13deg) scale(0.78); }
+  .pc-frame { border-radius: 12px; }
+  .blob-art { display: none; }
+  .pc-detail { grid-template-columns: 1fr; }
+  .pc-status { justify-self: start; margin-top: 10px; }
   .p-stack { grid-column: 1; }
 
   .skill-grid { grid-template-columns: repeat(2, 1fr); }

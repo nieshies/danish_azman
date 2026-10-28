@@ -111,7 +111,7 @@ function start(canvas) {
 
     // Hangs from the top edge, right of centre on desktop.
     // on phones it tucks into the top-right corner, clear of the name
-    anchor.set(narrow ? viewW * 0.28 : viewW * 0.1, viewH / 2 + 0.3, 0);
+    anchor.set(narrow ? viewW * 0.22 : viewW * 0.1, viewH / 2 + 0.3, 0);
     segLen = (viewH * (narrow ? 0.22 : 0.4)) / (SEGMENTS - 1);
 
     const scale = narrow ? 0.7 : 1;
