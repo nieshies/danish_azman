@@ -108,13 +108,14 @@ function start(canvas) {
     viewH = 2 * Math.tan((camera.fov * Math.PI) / 180 / 2) * camera.position.z;
     viewW = viewH * camera.aspect;
     narrow = w < 760;
+    const tiny = w < 420;
 
     // Hangs from the top edge, right of centre on desktop.
     // on phones it tucks into the top-right corner, clear of the name
-    anchor.set(narrow ? viewW * 0.22 : viewW * 0.1, viewH / 2 + 0.3, 0);
-    segLen = (viewH * (narrow ? 0.22 : 0.4)) / (SEGMENTS - 1);
+    anchor.set(narrow ? viewW * (tiny ? 0.25 : 0.22) : viewW * 0.1, viewH / 2 + 0.3, 0);
+    segLen = (viewH * (narrow ? (tiny ? 0.18 : 0.22) : 0.4)) / (SEGMENTS - 1);
 
-    const scale = narrow ? 0.7 : 1;
+    const scale = narrow ? (tiny ? 0.56 : 0.7) : 1;
     cardGroup.scale.setScalar(scale);
     clip.scale.setScalar(scale);
   }
